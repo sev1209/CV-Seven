@@ -1,0 +1,336 @@
+/* General Styling */
+:root {
+    --primary-color: #bb86fc; /* Warna aksen ungu muda */
+    --secondary-color: #03dac6; /* Warna aksen teal */
+    --background-dark: #121212; /* Latar belakang sangat gelap */
+    --surface-dark: #1e1e1e; /* Permukaan elemen gelap */
+    --text-light: #e0e0e0; /* Teks terang untuk kontras */
+    --text-muted: #a0a0a0; /* Teks sedikit diredam */
+    --border-color: #333; /* Warna border gelap */
+    --font-family: 'Montserrat', sans-serif;
+    --transition-speed: 0.3s ease;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden; /* Mencegah scroll horizontal */
+}
+
+/* Scrollbar Styling (Webkit - Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--surface-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+h1, h2, h3, h4 {
+    color: var(--text-light);
+    margin-bottom: 0.8em;
+}
+
+h1 {
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 0.5em;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 2.2em;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5em;
+    margin-top: 2em;
+    margin-bottom: 1.5em;
+}
+
+h3 {
+    font-size: 1.6em;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Header and Navigation */
+header {
+    background-color: var(--surface-dark);
+    padding: 1em 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: var(--text-muted);
+    font-weight: bold;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: var(--primary-color);
+    color: var(--background-dark);
+}
+
+/* Main Content Area */
+main {
+    padding: 2em;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.page {
+    display: none; /* Default hidden */
+    padding: 4em 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.page.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-wrapper {
+    background-color: var(--surface-dark);
+    padding: 2.5em;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2em;
+}
+
+/* Beranda Section */
+#beranda {
+    text-align: center;
+}
+
+.profile-photo img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(187, 134, 252, 0.6);
+    margin-bottom: 1.5em;
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--background-dark);
+    padding: 0.8em 2em;
+    border-radius: 5px;
+    margin-top: 1.5em;
+    font-weight: bold;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+/* Experience and Education Items */
+.experience-item,
+.education-item,
+.project-item {
+    background-color: #2a2a2a; /* Slightly lighter surface for nested items */
+    padding: 1.5em;
+    border-radius: 8px;
+    margin-bottom: 1.5em;
+    border-left: 5px solid var(--secondary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.experience-item h3, .education-item h3, .project-item h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.experience-item h4, .education-item h4 {
+    color: var(--text-muted);
+    font-weight: normal;
+    margin-bottom: 0.8em;
+}
+
+.experience-item ul li, .skills-category ul li {
+    margin-bottom: 0.5em;
+    position: relative;
+    padding-left: 1.2em;
+}
+
+.experience-item ul li::before, .skills-category ul li::before {
+    content: '•';
+    color: var(--secondary-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Skills Section */
+.skills-category {
+    margin-bottom: 2em;
+}
+
+.skills-category h3 {
+    color: var(--primary-color);
+    margin-bottom: 1em;
+}
+
+.skills-category ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.skills-category ul li {
+    background-color: #3a3a3a; /* Tag-like background */
+    padding: 0.6em 1.2em;
+    border-radius: 20px;
+    font-size: 0.9em;
+    color: var(--text-light);
+    border: 1px solid var(--border-color);
+    transition: background-color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.skills-category ul li:hover {
+    background-color: var(--primary-color);
+    color: var(--background-dark);
+    border-color: var(--primary-color);
+}
+
+
+/* Project Section */
+.project-item a {
+    display: inline-block;
+    margin-top: 1em;
+    background-color: var(--primary-color);
+    color: var(--background-dark);
+    padding: 0.5em 1.5em;
+    border-radius: 5px;
+    font-size: 0.9em;
+    transition: background-color var(--transition-speed);
+}
+
+.project-item a:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Contact Section */
+#kontak ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+}
+
+#kontak ul li a {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2em;
+    background-color: var(--surface-dark);
+    color: var(--text-muted);
+    font-size: 0.9em;
+    margin-top: 3em;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5em 0;
+    }
+
+    .page {
+        padding: 2em 0;
+    }
+
+    .content-wrapper {
+        padding: 1.5em;
+    }
+
+    .profile-photo img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.6em;
+    }
+    nav ul li a {
+        padding: 0.4em 0.8em;
+        font-size: 0.9em;
+    }
+    .content-wrapper {
+        padding: 1em;
+    }
+    .button {
+        padding: 0.6em 1.5em;
+        font-size: 0.9em;
+    }
+    .skills-category ul li {
+        font-size: 0.8em;
+        padding: 0.5em 1em;
+    }
+}
